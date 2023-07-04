@@ -5,6 +5,8 @@ import re
 import torch
 import torch.nn.functional as F
 import warnings
+from transformers import AutoModelForSequenceClassification
+from transformers import AutoModel, AutoTokenizer
 warnings.filterwarnings(action='ignore')
 
 ###########################################################################################################
@@ -45,8 +47,8 @@ region_id2label = {i: label for label, i in region_label2id.items()}
 ###########################################################################################################
 
 # tokenizer 및 model 불러오기
-tokenizer = AutoTokenizer.from_pretrained("kpfbert")
-kpf_model1 = BertForSequenceClassification.from_pretrained("kpf-BERT-cls-L1")
+tokenizer = AutoTokenizer.from_pretrained("./kpfbert")
+kpf_model1 = BertForSequenceClassification.from_pretrained("./kpf-BERT-cls-L1/")
 kpf_model2 = BertForSequenceClassification.from_pretrained("kpf-BERT-cls-L2")
 kpf_model3 = BertForSequenceClassification.from_pretrained("kpf-BERT-cls-L3")
 
